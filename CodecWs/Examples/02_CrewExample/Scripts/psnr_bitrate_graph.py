@@ -134,9 +134,10 @@ def analyze_qp(qp, codec='h264'):
         print(f"WARNING: Reconstructed file not found for {codec.upper()} QP{qp}")
         return None
     
-    # Calculate bitrate
-    bitstream_size = os.path.getsize(bitstream)
-    bitrate = (bitstream_size * 8 * VIDEO_FRAMERATE) / (VIDEO_FRAMES * 1000)  # kbps
+    # Calculate bitrate: Bitrate = bitstream_size_bits / duration_seconds
+    bitstream_size_bits = os.path.getsize(bitstream) * 8
+    duration_seconds = VIDEO_FRAMES / VIDEO_FRAMERATE
+    bitrate = bitstream_size_bits / duration_seconds / 1000  # kbps
     
     # Read Y components
     print(f"  Reading original Y component...")
@@ -244,7 +245,12 @@ def plot_psnr_vs_bitrate(h264_results, h265_results=None, output_file="psnr_vs_b
         all_psnr.extend([r['psnr'] for r in h265_results])
         all_bitrate.extend([r['bitrate'] for r in h265_results])
     
-    ax.set_xlim(left=0)
+    # Set proper axis limits with padding
+    bitrate_min = min(all_bitrate)
+    bitrate_max = max(all_bitrate)
+    bitrate_padding = (bitrate_max - bitrate_min) * 0.1
+    
+    ax.set_xlim(bitrate_min - bitrate_padding, bitrate_max + bitrate_padding)
     ax.set_ylim(min(all_psnr) - 2, max(all_psnr) + 2)
     ax.legend(loc='lower right', fontsize=12)
     
