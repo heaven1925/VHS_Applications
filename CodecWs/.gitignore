@@ -1,0 +1,52 @@
+# OS and IDE
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+
+# Large video files
+*.yuv
+*.y4m
+*.264
+*.265
+*.mp4
+*.avi
+*.mov
+
+# Encoded bitstreams and large outputs
+encoded.*
+decoded.*
+reconstructed.*
+
+# Results and temporary files
+*.txt (except README, except specific config files)
+results/
+output/
+
+# IDE and build
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Do not track individual QP frame comparisons that are regenerated
+H264_Codec/frame_comparison/*.bmp
+H265_Codec/frame_comparison/*.bmp
+
+# Allow tracking important comparison files
+!H264_Codec/frame_comparison/
+!H265_Codec/frame_comparison/
+!Application/frame_comparison/

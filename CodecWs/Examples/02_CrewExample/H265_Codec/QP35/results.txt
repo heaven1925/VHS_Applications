@@ -1,0 +1,17 @@
+HM H.265/HEVC - Crew CIF Example Results
+============================================================
+
+Video Settings:
+  Resolution: 352x288 (CIF)
+  Frame rate: 30.0 fps
+  Frames: 300
+  Duration: 10.0 seconds
+  QP: 35
+
+Compression Results:
+  Original: 43.5 MB
+  Compressed: 858.4 KB
+  Ratio: 51.9:1
+  Saved: 98.1%
+  Bitrate: 703.24 kbps
+

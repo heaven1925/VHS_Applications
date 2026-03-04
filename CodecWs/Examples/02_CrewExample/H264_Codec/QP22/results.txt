@@ -1,0 +1,17 @@
+JSVM H.264/AVC - Crew CIF Example Results
+============================================================
+
+Video Settings:
+  Resolution: 352x288 (CIF)
+  Frame rate: 30.0 fps
+  Frames: 300
+  Duration: 10.0 seconds
+  QP: 22
+
+Compression Results:
+  Original: 43.5 MB
+  Compressed: 2456.6 KB
+  Ratio: 18.1:1
+  Saved: 94.5%
+  Bitrate: 2012.44 kbps
+
